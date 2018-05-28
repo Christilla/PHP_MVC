@@ -3,6 +3,7 @@ class Autoloader{
  private static $_classDir = "./classes/";
  
  public static function classAutoloader($class){
+  echo 'Hey Hey';
    echo $class."\n";
   $path = static::$_classDir."$class.php";
   $path = str_replace("\\","/",$path);

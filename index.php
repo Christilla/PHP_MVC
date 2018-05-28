@@ -26,8 +26,10 @@ and open the template in the editor.
    include './controller/' . $class . '.php';
    endif;
    });
-  
+  spl_autoload_register('Autoloader::classAutoloader');
+   
   Kernel::getInstance()-> main;
+  Autoloader::classAutoloader($class);
   ?>
  </body>
 </html>
