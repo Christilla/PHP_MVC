@@ -1,0 +1,20 @@
+<IfModule mod_rewrite.c>
+DirectoryIndex index.php index.html
+Options +FollowSymLinks
+RewriteEngine On
+
+# redirect all api calls to /api/index.php
+RewriteRule ^api//((?!index\.php$).+)$ api/index.php [L,NC]
+
+# If the request is a file, folder or symlink that exists, serve it up
+RewriteCond %{REQUEST_FILENAME} !-f [OR]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} $ [NC]
+RewriteRule ^ -[L]
+
+RewriteRule ^(.+) index.php [QSA,L]
+
+
+
+
+</IfModule>
